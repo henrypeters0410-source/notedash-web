@@ -1,4 +1,5 @@
 name: Deploy NoteDash Web to GitHub Pages
+
 on:
   push:
     branches: [ main ]
@@ -15,12 +16,4 @@ jobs:
       - name: Unzip website into ./site
         run: |
           mkdir site
-          unzip -q "NoteDash-Web-PWA.zip" -d site
-          # If the zip extracts into a subfolder (NoteDashWeb), flatten it:
-          if [ -d site/NoteDashWeb ]; then mv site/NoteDashWeb/* site/ && rmdir site/NoteDashWeb; fi
-
-      - name: Publish to gh-pages branch
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: site
+          unzip -q "
