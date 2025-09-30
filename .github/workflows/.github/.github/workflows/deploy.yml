@@ -16,11 +16,10 @@ jobs:
       - name: Unzip website into ./site
         run: |
           mkdir site
-          unzip -q "
           unzip -q "NoteDash-Web-PWA.zip" -d site
 
-      - name: Publish to gh-pages branch
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: site
+          publish_dir: ./site
